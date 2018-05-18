@@ -1,0 +1,125 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+</head>
+
+<body>
+<input id="name" type="text">
+<button id="submit-btn" onclick="getName()">Submit</button>
+</body>
+<script>
+		function getName(){
+		var con=document.getElementById("name").value;
+		console.log("con",con);
+	}
+		document.onkeydown = function(e) {
+                e = e || window.event;
+                if(e.keyCode == 13) {
+                   getName();
+                }
+			if(e.keyCode == 27){
+				document.getElementById("name").value="";
+			}
+            }
+	</script>
+</html>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>IFE ECMAScript</title>
+<style>
+select { display: none; }
+</style>
+</head>
+<body>
+<label>
+	<input id="school" name="status" type="radio" onclick="school()">
+	School </label>
+<label>
+	<input id="company" name="status" type="radio" onclick="company()">
+	Company </label>
+<select id="school-select">
+	<option>北京邮电大学</option>
+	<option>黑龙江大学</option>
+	<option>华中科技大学</option>
+</select>
+<select id="company-select">
+	<option>百度</option>
+	<option>爱奇艺</option>
+</select>
+<script>	
+	function school(){
+		var ele = document.getElementById("school-select");
+		console.log("ele",ele);
+		document.getElementById("school-select").style.cssText="display:block";
+		document.getElementById("company-select").style.cssText="display:none";
+		
+	}
+	function company(){
+		document.getElementById("school-select").style.cssText="display:none";
+		document.getElementById("company-select").style.cssText="display:block";
+		
+	}
+	
+	</script>
+</body>
+</html>
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>IFE ECMAScript</title>
+<style>
+.palette { margin: 0; padding: 0; list-style: none; }
+.palette li { width: 40px; height: 40px; border: 1px solid #000; cursor: pointer; }
+</style>
+</head>
+<body>
+<ul class="palette">
+	<li style="background-color:crimson"></li>
+	<li style="background-color:bisque"></li>
+	<li style="background-color:blueviolet"></li>
+	<li style="background-color:coral"></li>
+	<li style="background-color:chartreuse"></li>
+	<li style="background-color:darkolivegreen"></li>
+	<li style="background-color:cyan"></li>
+	<li style="background-color:#194738"></li>
+</ul>
+<p class="color-picker"></p>
+<script>
+        var list = document.querySelectorAll("li");
+        for (var i = i = 0, len = list.length; i < len; i++) {
+            list[i].onclick = function(e) {
+                var t = e.target;
+                var c = t.style.backgroundColor;
+                var p = document.getElementsByClassName("color-picker")[0]
+                p.innerHTML = c;
+                p.style.color = c;
+
+            }
+        }
+    </script>
+	<div id="fade-obj" style="width:300px;height:300px;background:#000"></div>
+<button id="fade-btn" onClick="fade()">淡出</button>
+<script>	
+ function fade(){
+	 var num=10;
+	 var fadeItem=document.getElementById("fade-obj");
+	 var st=setInterval(function(){
+		 num--;
+		 fadeItem.style.opacity=num/10;
+		 if(num<0){
+			 clearInterval(st);
+		 }
+	 },100)
+ }
+
+</script>
+</body>
+</html>
+
+
